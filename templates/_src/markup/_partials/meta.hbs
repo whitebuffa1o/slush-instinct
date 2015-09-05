@@ -1,0 +1,12 @@
+<% if(!bypass) { %>
+<?php
+  if(meta_keywords()):
+    echo '<meta name="keywords" content="'.meta_keywords().'">'."\r\n";
+  endif;
+
+  if(meta_description()):
+    echo '<meta name="description" content="'.meta_description().'">'."\r\n";
+  endif;
+?>
+<% } %>
+<meta name="viewport" content="width=device-width, initial-scale=1">

@@ -1,0 +1,42 @@
+<!doctype html>
+<html class="{{file.data.class}}" lang="en">
+<head>
+  {{#block "head"}}
+    <meta charset="utf-8">
+    <title>
+      {{#block "title"}}
+        <% if(bypass) { %>{{file.data.title}}<% } else { %><?= page_title() ?><% } %> | {{site.title}}
+      {{/block}}
+    </title>
+
+    {{#block "meta"}}
+      {{> _partials/meta }}
+    {{/block}}
+
+    {{#block "styles"}}
+      <link rel="stylesheet" href="/css/<%= appNameSlug %>.css">
+    {{/block}}
+
+  {{/block}}
+</head>
+<body>
+  {{#block "header"}}
+    {{> _partials/header }}
+  {{/block}}
+
+  <main>
+    {{#block "content"}}
+    {{/block}}
+  </main>
+
+  {{#block "footer"}}
+    {{> _partials/footer }}
+  {{/block}}
+
+  {{#block "scripts"}}
+    <% if(jquery) { %><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script><% } %>
+    <script src="/js/common.js"></script>
+    <script src="/js/site.js"></script>
+  {{/block}}
+</body>
+</html>
