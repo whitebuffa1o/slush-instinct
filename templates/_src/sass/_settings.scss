@@ -89,5 +89,5 @@ $row-width: #{$max-width};
 @import '../../node_modules/foundation-sites/scss/normalize';
 @import '../../node_modules/foundation-sites/scss/foundation';
 <% } else { %>
-@import '../../node_modules/node.normalize.css/normalize';
+@import '../../node_modules/node.normalize.scss/normalize';
 <% } %>
