@@ -1,5 +1,4 @@
 {
-  "title": "<%= appNameSlug %>",
-  "url": "<%= appUrl %>",
-  "phone": "1-888-555-1234"
+  "title": "<%= appName %>",
+  "url": "<%= appUrl %>"
 }
