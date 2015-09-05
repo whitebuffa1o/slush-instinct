@@ -1,5 +1,10 @@
 var $ = require('jquery');
+<% if(foundation){ %>
+var foundation = require('foundation-sites/js/foundation.min');
+<% } %>
 
 $(function(){
-  // my document is ready
+  <% if(foundation){ %>
+  $(document).foundation();
+  <% } %>
 });
