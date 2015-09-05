@@ -6,6 +6,7 @@ var gulp = require('gulp'),
   template = require('gulp-template'),
   _ = require('underscore.string'),
   inquirer = require('inquirer'),
+  exec = require('gulp-exec'),
   path = require('path');
 
 function format(string) {
@@ -20,8 +21,7 @@ var defaults = (function () {
   if (process.platform === 'win32') {
     homeDir = process.env.USERPROFILE;
     osUserName = process.env.USERNAME || path.basename(homeDir).toLowerCase();
-  }
-  else {
+  } else {
     homeDir = process.env.HOME || process.env.HOMEPATH;
     osUserName = homeDir && homeDir.split('/').pop() || 'root';
   }
@@ -41,7 +41,7 @@ var defaults = (function () {
   };
 })();
 
-gulp.task('default', function (done) {
+gulp.task('default', function(done){
   var prompts = [{
     name: 'appName',
     message: 'What is the name of your project?',
@@ -90,9 +90,9 @@ gulp.task('default', function (done) {
     message: 'Is this project using Cuttlefish?',
     default: false
   }];
-//Ask
-inquirer.prompt(prompts,
-  function (answers) {
+
+  //Ask
+  inquirer.prompt(prompts, function (answers) {
     answers.appNameSlug = _.slugify(answers.appName);
 
     var files = [__dirname + '/templates/**'];
@@ -103,6 +103,9 @@ inquirer.prompt(prompts,
       files.push('!'+__dirname+'/templates/_src/markup/*.html');
     }
 
+    gulp.src('./')
+      .pipe(exec('git init && git remote add origin git@gitlab.com:clearlink/'+answers.appRepo+'.git'));
+
     gulp.src(files)
       .pipe(template(answers))
       .pipe(conflict('./'))
@@ -110,6 +113,6 @@ inquirer.prompt(prompts,
       .pipe(install())
       .on('end', function () {
         done();
-    });
+      });
   });
 });
