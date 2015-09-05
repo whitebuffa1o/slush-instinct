@@ -1,1 +1,93 @@
+/**
+ * SETTINGS
+ * ---------
+ * The main sass configuration file for <%= appName %>. You may/should/will
+ * modify this file quite a bit. Any additions made to this file should be
+ * well documented.
+ */
+
+// Overall maximum width. Is used as the "Large Desktop" breakpoint.
+$max-width: 1200px;
+
+// Base font size of the project. Is used with the em() and rem() functions
+$em-base: 16;
+
+/**
+ * Color Maps
+ * ---------
+ * Set color values you're going to reuse throughout the project here.
+ * You can call a color from this map with the color() function.
+ * via: color(value)
+ * ---------
+ * Tips:
+ * - Try to avoid naming them after the actual color they are being set to.
+ * - Don't throw every variation in here, it gets confusing fast. Utilize
+ *   sass's built in lighten(), darken(), hsl(), etc functions to get
+ *   different variations of the same color.
+ * - Similarly, use lighten(white) and darken(black) to get different shades
+ *   of grey throughout the project.
+ */
+$colors: (
+  copy:      '#454545',
+  primary:   'dodgerblue',
+  secondary: 'rebeccapurple',
+  tertiary:  '#ff0000',
+  accent:    'green',
+);
+
+/**
+ * Responsive Breakpoints
+ * ---------
+ * Set breakpoint values you're going to use throughout your project.
+ * You call these with a simple mixin via: @include bp(value)
+ * ---------
+ * Tips:
+ * - Try to avoid bloating this up with a bunch of values. You may have to
+ *   adjust the value(s) several times while developing, but you should be
+ *   able to get away with just using the six provided breakpoints.
+ * - Remember to develop mobile first!
+ */
+$breakpoints: (
+  msm: '520px',
+  mlg: '640px',
+  tsm: '768px',
+  tlg: '840px',
+  dsm: '960px',
+  dlg: #{$max-width},
+);
+
+<% if(foundation){ %>
+/**
+ * Foundation Settings
+ * ---------
+ * Overwrite Foundation settings here.
+ * ---------
+ * Tips:
+ * - If you need to reference, the settings file is in the
+ *   node_modules/foundation-sites directory. DO NOT MODIFY THAT FILE!
+ *   Instead, place just your modifications here.
+ */
+$row-width: #{$max-width};
+
+<% } %>
+
+/**
+ * Imported Files
+ * ---------
+ * Import additional global sass files here to avoid having to import more
+ * than just the settings file in your other sass sheets.
+ * ---------
+ * Tips:
+ * - The order in which things are imported is very important. Pay attention
+ *   to which files they are/are going to utilize.
+ */
+// Additional tool imports
 @import 'utils';
+
+// Other style imports
+<% if(foundation) { %>
+@import '../../node_modules/foundation-sites/scss/normalize';
+@import '../../node_modules/foundation-sites/scss/foundation';
+<% } else { %>
+@import '../../node_modules/node.normalize.css/normalize';
+<% } %>
