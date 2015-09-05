@@ -1,43 +1,44 @@
 {
-    "name": "slush-colony",
-    "description": "A slush generator to scaffold a Colony project",
-    "version": "0.1.0",
-    "homepage": "https://github.com/loremipson/slush-colony",
-    "author": {
-        "name": "Tyler Ipson",
-        "email": "tyler.ipson@clearlink.com"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/loremipson/slush-colony.git"
-    },
-    "bugs": {
-        "url": "https://github.com/loremipson/slush-colony/issues"
-    },
-    "licenses": [{
-        "type": "MIT",
-        "url": "https://github.com/loremipson/slush-colony/blob/master/LICENSE"
-    }],
-    "main": "slushfile.js",
-    "engines": {
-        "node": ">= 0.10.26",
-        "npm": ">=1.4.3"
-    },
-    "scripts": {
-        "test": "echo \"No tests\""
-    },
-    "dependencies": {
-        "slush": ">=1.0.0",
-        "gulp": "^3.6.2",
-        "gulp-template": "^0.1.1",
-        "gulp-install": "^0.1.4",
-        "gulp-conflict": "^0.1.1",
-        "gulp-rename": "^1.2.0",
-        "underscore.string": "^2.3.3",
-        "inquirer": "^0.8.0",
-        "iniparser": "^1.0.5"
-    },
-    "keywords": [
-        "slushgenerator"
-    ]
+  "name": "slush-colony",
+  "description": "A slush generator to scaffold a Colony project",
+  "version": "0.1.0",
+  "homepage": "https://github.com/loremipson/slush-colony",
+  "author": {
+    "name": "Tyler Ipson",
+    "email": "tyler.ipson@clearlink.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/loremipson/slush-colony.git"
+  },
+  "bugs": {
+    "url": "https://github.com/loremipson/slush-colony/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/loremipson/slush-colony/blob/master/LICENSE"
+    }
+  ],
+  "main": "slushfile.js",
+  "engines": {
+    "node": ">= 0.10.26",
+    "npm": ">=1.4.3"
+  },
+  "scripts": {
+    "test": "echo \"No tests\""
+  },
+  "dependencies": {
+    "gulp": "^3.6.2",
+    "gulp-conflict": "^0.1.1",
+    "gulp-install": "^0.1.4",
+    "gulp-template": "^0.1.1",
+    "iniparser": "^1.0.5",
+    "inquirer": "^0.8.0",
+    "slush": ">=1.0.0",
+    "underscore.string": "^2.3.3"
+  },
+  "keywords": [
+    "slushgenerator"
+  ]
 }
