@@ -15,7 +15,7 @@ var project = {
   cuttlefish: <%= cuttlefish %>,
 };
 
-var hbs {
+var hbs = {
   data: ['./_src/markup/_data/**/*.{js,json}'<% if(cuttlefish) { %>, './node_modules/cuttlefish/_data'<% } %>],
   helpers: ['./node_modules/handlebars-layouts'<% if(cuttlefish) { %>, './node_modules/cuttlefish/_helpers'<% }%>],
   partials: ['./_src/markup/_partials/**/*.hbs', '_src/markup/_layouts/**/*.hbs'<% if(cuttlefish) { %>, './node_modules/cuttlefish/_helpers'<% }%>],
