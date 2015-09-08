@@ -6,14 +6,19 @@ var pngquant = require('imagemin-pngquant');
  * Set up your project settings here. The project name is used
  * in some of the paths and filenames below. URL is needed for
  * browser-sync options.
- *
- * TODO: Wiki Entry
  */
 
 var project = {
   name: '<%= appNameSlug %>',
   url: '<%= appUrl %>',
   bypassCms: <%= bypass %>,
+  cuttlefish: <%= cuttlefish %>,
+};
+
+var hbs {
+  data: ['./_src/markup/_data/**/*.{js,json}'<% if(cuttlefish) { %>, './node_modules/cuttlefish/_data'<% } %>],
+  helpers: ['./node_modules/handlebars-layouts'<% if(cuttlefish) { %>, './node_modules/cuttlefish/_helpers'<% }%>],
+  partials: ['./_src/markup/_partials/**/*.hbs', '_src/markup/_layouts/**/*.hbs'<% if(cuttlefish) { %>, './node_modules/cuttlefish/_helpers'<% }%>],
 };
 
 var syncOptions = (!project.bypassCms) ? {
@@ -55,7 +60,15 @@ module.exports = {
     css: (project.bypassCms ? './build/css/' : './css/'),
     images: (project.bypassCms ? './build/images/' : './images/'),
     scripts: (project.bypassCms ? './build/js/' : './js/'),
-    cdn: 'https://'+project.name+'.clcdn.com/'
+    cdn: 'https://'+project.name+'.clcdn.com/',
+  },
+
+  handlebars: {
+    bustCache: true,
+    debug: true,
+    data: hbs.data,
+    helpers: hbs.helpers,
+    partials: hbs.partials,
   },
 
   minifyHtml: {
