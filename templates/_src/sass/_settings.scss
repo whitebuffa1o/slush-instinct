@@ -55,7 +55,6 @@ $breakpoints: (
   dsm: '960px',
   dlg: #{$max-width},
 );
-
 <% if(foundation){ %>
 /**
  * Foundation Settings
@@ -68,9 +67,7 @@ $breakpoints: (
  *   Instead, place just your modifications here.
  */
 $row-width: #{$max-width};
-
 <% } %>
-
 /**
  * Imported Files
  * ---------
@@ -85,9 +82,7 @@ $row-width: #{$max-width};
 @import 'utils';
 
 // Other style imports
-<% if(foundation) { %>
-@import '../../node_modules/foundation-sites/scss/normalize';
-@import '../../node_modules/foundation-sites/scss/foundation';
-<% } else { %>
-@import '../../node_modules/node.normalize.scss/normalize';
-<% } %>
+<% if(foundation) { %>@import '../../node_modules/foundation-sites/scss/normalize';
+@import '../../node_modules/foundation-sites/scss/foundation';<% } else { %>
+@import '../../node_modules/node.normalize.scss/normalize';<% } %>
+<% if(cuttlefish) { %>@import '../../node_modules/cuttlefish/sass/cuttlefish/cuttlefish';<% } %>

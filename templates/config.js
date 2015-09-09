@@ -1,4 +1,5 @@
 var pngquant = require('imagemin-pngquant');
+var path = require('path');
 
 /**
  * General Settings
@@ -16,9 +17,9 @@ var project = {
 };
 
 var hbs = {
-  data: ['./_src/markup/_data/**/*.{js,json}'<% if(cuttlefish) { %>, './node_modules/cuttlefish/_data'<% } %>],
-  helpers: ['./node_modules/handlebars-layouts'<% if(cuttlefish) { %>, './node_modules/cuttlefish/_helpers'<% }%>],
-  partials: ['./_src/markup/_partials/**/*.hbs', '_src/markup/_layouts/**/*.hbs'<% if(cuttlefish) { %>, './node_modules/cuttlefish/_helpers'<% }%>],
+  data: ['./_src/markup/_data/**/*.{js,json}'],
+  helpers: ['./node_modules/handlebars-layouts'],
+  partials: ['./_src/markup/_partials/**/*.hbs', './_src/markup/_layouts/**/*.hbs'<% if(cuttlefish) { %>, './node_modules/cuttlefish/partials'<% }%>],
 };
 
 var syncOptions = (!project.bypassCms) ? {
@@ -69,6 +70,9 @@ module.exports = {
     data: hbs.data,
     helpers: hbs.helpers,
     partials: hbs.partials,
+    parsePartialName: function(file){
+      return path.basename(file.shortPath);
+    }
   },
 
   minifyHtml: {
@@ -104,8 +108,8 @@ module.exports = {
   },
 
   sprites: {
-    src: '_src/sprites/**/*',
-    style: '_sprite.scss',
+    src: './_src/sprites/**/*',
+    style: './_sprite.scss',
     dimension: [{
       ratio: 1, dpi: 72
     }, {
@@ -119,7 +123,7 @@ module.exports = {
   svgSprites: {
     mode: {
       symbol: {
-        dest: '_src/markup/_partials',
+        dest: './_src/markup/_partials',
         sprite: 'inlineSvg.hbs',
         inline: true,
       }

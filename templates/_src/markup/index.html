@@ -8,7 +8,7 @@ features:
   - yaml frontmatter
   - json data
 ---
-{{#extend "_layouts/base"}}
+{{#extend "base"}}
 
   {{#content "content"}}
 
