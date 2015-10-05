@@ -1,23 +1,23 @@
 {
-  "name": "slush-colony",
-  "description": "A slush generator to scaffold a Colony project",
+  "name": "slush-instinct",
+  "description": "A slush generator to scaffold an Instinct project",
   "version": "0.1.0",
-  "homepage": "https://github.com/loremipson/slush-colony",
+  "homepage": "https://github.com/loremipson/slush-instinct",
   "author": {
     "name": "Tyler Ipson",
     "email": "tyler.ipson@clearlink.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/loremipson/slush-colony.git"
+    "url": "git://github.com/loremipson/slush-instinct.git"
   },
   "bugs": {
-    "url": "https://github.com/loremipson/slush-colony/issues"
+    "url": "https://github.com/loremipson/slush-instinct/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/loremipson/slush-colony/blob/master/LICENSE"
+      "url": "https://github.com/loremipson/slush-instinct/blob/master/LICENSE"
     }
   ],
   "main": "slushfile.js",
