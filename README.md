@@ -1,14 +1,14 @@
-# Slush Colony [![Build Status](https://secure.travis-ci.org/loremipson/slush-colony.png?branch=master)](https://travis-ci.org/loremipson/slush-colony) [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-colony.png)](http://badges.enytc.com/for/npm/slush-colony)
+# Slush Instinct [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-instinct.png)](http://badges.enytc.com/for/npm/slush-instinct)
 
-> A slush generator to scaffold a Colony project
+> A slush generator to scaffold a Instinct project
 
 
 ## Getting Started
 
-Install `slush-colony` globally:
+Install `slush-instinct` globally:
 
 ```bash
-$ npm install -g slush-colony
+$ npm install -g slush-instinct
 ```
 
 ### Usage
@@ -16,13 +16,13 @@ $ npm install -g slush-colony
 Create a new folder for your project:
 
 ```bash
-$ mkdir my-slush-colony
+$ mkdir my-slush-instinct
 ```
 
 Run the generator from within the new folder:
 
 ```bash
-$ cd my-slush-colony && slush colony
+$ cd my-slush-instinct && slush instinct
 ```
 
 ## Getting To Know Slush
@@ -35,10 +35,10 @@ To find out more about Slush, check out the [documentation](https://github.com/s
 
 ## Contributing
 
-See the [CONTRIBUTING Guidelines](https://github.com/loremipson/slush-colony/blob/master/CONTRIBUTING.md)
+See the [CONTRIBUTING Guidelines](https://github.com/loremipson/slush-instinct/blob/master/CONTRIBUTING.md)
 
 ## Support
-If you have any problem or suggestion please open an issue [here](https://github.com/loremipson/slush-colony/issues).
+If you have any problem or suggestion please open an issue [here](https://github.com/loremipson/slush-instinct/issues).
 
 ## License 
 
