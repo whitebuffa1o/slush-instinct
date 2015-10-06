@@ -4,6 +4,7 @@ var gulp = require('gulp'),
   install = require('gulp-install'),
   conflict = require('gulp-conflict'),
   template = require('gulp-template'),
+  rename = require('gulp-rename'),
   _ = require('underscore.string'),
   inquirer = require('inquirer'),
   exec = require('gulp-exec'),
@@ -108,6 +109,11 @@ gulp.task('default', function(done){
 
     gulp.src(files)
       .pipe(template(answers))
+      .pipe(rename(function(file){
+        if(file.basename.substring(0, 4) === 'dot_'){
+          file.basename = '.' + file.basename.slice(4);
+        }      
+      }))
       .pipe(conflict('./'))
       .pipe(gulp.dest('./'))
       .pipe(install())
