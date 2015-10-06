@@ -28,11 +28,11 @@ $em-base: 16;
  *   of grey throughout the project.
  */
 $colors: (
-  copy:      '#454545',
-  primary:   'dodgerblue',
-  secondary: 'rebeccapurple',
-  tertiary:  '#ff0000',
-  accent:    'green',
+  copy:      #454545,
+  primary:   dodgerblue,
+  secondary: rebeccapurple,
+  tertiary:  #ff0000,
+  accent:    green,
 );
 
 /**
@@ -48,11 +48,11 @@ $colors: (
  * - Remember to develop mobile first!
  */
 $breakpoints: (
-  msm: '520px',
-  mlg: '640px',
-  tsm: '768px',
-  tlg: '840px',
-  dsm: '960px',
+  msm: 520px,
+  mlg: 640px,
+  tsm: 768px,
+  tlg: 840px,
+  dsm: 960px,
   dlg: #{$max-width},
 );
 <% if(foundation){ %>
