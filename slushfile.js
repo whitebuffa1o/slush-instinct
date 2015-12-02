@@ -74,7 +74,7 @@ gulp.task('default', function(done){
     type: 'confirm',
     name: 'bypass',
     message: 'Do you want to bypass the CMS entirely? (This can be changed later)',
-    default: true
+    default: false
   }, {
     type: 'confirm',
     name: 'jquery',
@@ -98,10 +98,16 @@ gulp.task('default', function(done){
 
     var files = [__dirname + '/templates/**'];
 
+    // If we're using the CMS, we need to move the php files, rather than static html
     if(answers.bypass) {
-      files.push('!'+__dirname+'/templates/_src/markup/*.php');
+      files = files.concat(['!'+__dirname+'/templates/dot_htaccess', '!'+__dirname+'/templates/*.php', '!'+__dirname+'/**/*.php']);
     } else {
       files.push('!'+__dirname+'/templates/_src/markup/*.html');
+    }
+
+    // If Cuttlefish, we don't need utils
+    if(answers.cuttlefish) {
+      files.push('!'+__dirname+'/templates/_src/sass/_utils.scss');
     }
 
     gulp.src('./')
