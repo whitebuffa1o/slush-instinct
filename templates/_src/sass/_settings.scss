@@ -1,4 +1,4 @@
-/**
+<% if(!cuttlefish) { %>/**
  * SETTINGS
  * ---------
  * The main sass configuration file for <%= appName %>. You may/should/will
@@ -83,6 +83,6 @@ $row-width: #{$max-width};
 
 // Other style imports
 <% if(foundation) { %>@import '../../node_modules/foundation-sites/scss/normalize';
-@import '../../node_modules/foundation-sites/scss/foundation';<% } else { %>
+@import '../../node_modules/foundation-sites/scss/foundation';<% } %><% } else { %><% if(!foundation) { %>
 @import '../../node_modules/node.normalize.scss/normalize';<% } %>
-<% if(cuttlefish) { %>@import '../../node_modules/cuttlefish/sass/cuttlefish/cuttlefish';<% } %>
+@import '../../node_modules/cuttlefish/sass/cuttlefish/cuttlefish';<% } %>
