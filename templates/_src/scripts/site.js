@@ -1,10 +1,8 @@
-var $ = require('jquery');
-<% if(foundation){ %>
-var foundation = require('foundation-sites/js/foundation.min');
-<% } %>
+var $ = require('jquery');<% if(!cuttlefish && foundation){ %>
+var foundation = require('foundation-sites/js/foundation.min');<% } %>
 
 $(function(){
-  <% if(foundation){ %>
+  <% if(!cuttlefish && foundation){ %>
   $(document).foundation();
   <% } %>
 });
