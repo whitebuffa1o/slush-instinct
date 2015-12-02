@@ -9,17 +9,10 @@
     "gulp": "^3.9.0",
     "instinct_cl": "^1.0.1",
     "imagemin-pngquant": "^4.1.2",
-    <% if(cuttlefish) { %>
-    "cuttlefish": "git@gitlab.com:clearlink/cuttlefish.git",
-    <% } %>
-    <% if(foundation) { %>
-    "foundation-sites": "^5.5.2",
-    <% } else { %>
-    "node.normalize.scss": "^3.0.2",
-    <% } %>
-    <% if(!jquery) { %>
-    "jquery": "^2.1.4",
-    <% } %>
+    <% if(cuttlefish) { %>"cuttlefish": "git@gitlab.com:clearlink/cuttlefish.git",<% } else {  %><% if(foundation) { %>
+    "foundation-sites": "^5.5.2",<% } %><% } %><% if(!foundation) { %>
+    "node.normalize.scss": "^3.0.2",<% } %><% if(!jquery) { %>
+    "jquery": "^2.1.4",<% } %>
     "webpack": "^1.12.0",
     "yargs": "^3.21.0",
     "handlebars-layouts": "^3.1.2"
