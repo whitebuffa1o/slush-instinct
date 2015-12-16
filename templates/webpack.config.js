@@ -18,6 +18,12 @@ module.exports = {
     root: [path.join(__dirname, 'bower_components')]
   },
 
+  module: {
+    loaders: [
+      { test: /\.json$/, loader: 'json' },
+    ]
+  },
+
   plugins: [
     new webpack.ResolverPlugin(
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])
