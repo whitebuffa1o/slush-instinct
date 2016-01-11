@@ -57,10 +57,31 @@ var syncOptions = (!project.bypassCms) ? {
  */
 module.exports = {
   paths: {
-    html: (project.bypassCms ? './build/' : './pages/'),
-    css: (project.bypassCms ? './build/css/' : './css/'),
-    images: (project.bypassCms ? './build/images/' : './images/'),
-    scripts: (project.bypassCms ? './build/js/' : './js/'),
+    html: {
+      source: [
+        './_src/markup/**/*.{html,hbs,php}',
+        './!_src/markup/_**/**/*'
+      ],
+      dest: (project.bypassCms ? './build/' : './pages/')
+    },
+    css: {
+      source: ['./_src/sass/**/*.{scss,sass}'],
+      dest: (project.bypassCms ? './build/css/' : './css/')
+    },
+    images: {
+      source: ['./_src/images/**/*'],
+      dest: (project.bypassCms ? './build/images/' : './images/')
+    },
+    scripts: {
+      source: ['./_src/scripts/**/*.js'],
+      dest: (project.bypassCms ? './build/js/' : './js/')
+    },
+    sprites: {
+      source: ['./_src/sprites/**/*']
+    },
+    svgSprites: {
+      source: ['./_src/svgSprites/**/*.svg']
+    },
     cdn: 'https://'+project.name+'.clcdn.com/',
   },
 
@@ -108,7 +129,6 @@ module.exports = {
   },
 
   sprites: {
-    src: './_src/sprites/**/*',
     style: './_sprite.scss',
     dimension: [{
       ratio: 1, dpi: 72
