@@ -3,9 +3,13 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased]
 
-## [0.1.5] - 2016-01-11
+## [0.1.6] - 2016-01-11
 ### Added
 - Adds source paths to the configuration file so we can modify them per project, if necessary
+
+## [0.1.5] - 2015-12-16
+### Added
+- Includes json loader in the webpack configuration
 
 ## [0.1.4] - 2015-12-02
 ### Added
