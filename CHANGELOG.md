@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased]
 
-## [0.1.6] - 2016-01-11
+## [0.2.0] - 2016-01-11
 ### Added
 - Adds source paths to the configuration file so we can modify them per project, if necessary
 
