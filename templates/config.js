@@ -96,7 +96,7 @@ module.exports = {
     }
   },
 
-  minifyHtml: {
+  htmlmin: {
     /* You can pick and choose what gets stripped out here. See https://github.com/kangax/html-minifier for more options */
     removeComments: true,
     collapseWhitespace: true,
