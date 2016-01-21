@@ -97,7 +97,11 @@ module.exports = {
   },
 
   minifyHtml: {
-    /* You can pick and choose what gets stripped out here. See https://www.npmjs.com/package/gulp-minify-html for more options */
+    /* You can pick and choose what gets stripped out here. See https://github.com/kangax/html-minifier for more options */
+    removeComments: true,
+    collapseWhitespace: true,
+    removeScriptTypeAttributes: true,
+    removeStyleLinkTypeAttributes: true
   },
 
   images: {
