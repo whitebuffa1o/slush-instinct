@@ -50,6 +50,14 @@ var syncOptions = (!project.bypassCms) ? {
   }
 };
 
+// Sprite source
+// Needs to be specified here because sprity is annoying and 
+// uses its own source, rather than gulp.src.. so we have to call it
+// multiple times.
+// 
+// All other sources are listed below.
+var spriteSource = ['./_src/sprites/**/*'];
+
 /**
  * Task Settings
  * -----------------------------
@@ -77,7 +85,7 @@ module.exports = {
       dest: (project.bypassCms ? './build/js/' : './js/')
     },
     sprites: {
-      source: ['./_src/sprites/**/*']
+      source: spriteSource
     },
     svgSprites: {
       source: ['./_src/svgSprites/**/*.svg']
@@ -133,6 +141,7 @@ module.exports = {
   },
 
   sprites: {
+    src: spriteSource,
     style: './_sprite.scss',
     dimension: [{
       ratio: 1, dpi: 72
