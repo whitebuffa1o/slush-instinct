@@ -66,10 +66,7 @@ var spriteSource = ['./_src/sprites/**/*'];
 module.exports = {
   paths: {
     html: {
-      source: [
-        './_src/markup/**/*.{html,hbs,php}',
-        './!_src/markup/_**/**/*'
-      ],
+      source: ['./_src/markup/**/*.{html,hbs,php}'],
       dest: (project.bypassCms ? './build/' : './pages/')
     },
     css: {
