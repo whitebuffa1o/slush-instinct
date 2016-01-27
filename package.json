@@ -1,7 +1,7 @@
 {
   "name": "slush-instinct",
   "description": "A slush generator to scaffold an Instinct project",
-  "version": "0.2.5",
+  "version": "1.0.0",
   "homepage": "https://github.com/loremipson/slush-instinct",
   "author": {
     "name": "Tyler Ipson",
