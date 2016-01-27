@@ -7,14 +7,14 @@
   "repository": "<%= appRepo %>",
   "devDependencies": {
     "gulp": "^3.9.0",
-    "instinct_cl": "^1.2.2",
-    "imagemin-pngquant": "^4.1.2",
+    "instinct_cl": "^2.0.0",
+    "imagemin-pngquant": "^4.2.0",
     <% if(cuttlefish) { %>"cuttlefish": "git@gitlab.com:clearlink/cuttlefish.git",<% } else {  %><% if(foundation) { %>
-    "foundation-sites": "^5.5.2",<% } %><% } %><% if(!foundation) { %>
-    "node.normalize.scss": "^3.0.2",<% } %><% if(!jquery) { %>
-    "jquery": "^2.1.4",<% } %>
-    "webpack": "^1.12.0",
-    "yargs": "^3.21.0",
-    "handlebars-layouts": "^3.1.2"
+    "foundation-sites": "^5.5.3",<% } %><% } %><% if(!foundation) { %>
+    "node.normalize.scss": "^3.0.3",<% } %><% if(!jquery) { %>
+    "jquery": "^2.2.0",<% } %>
+    "webpack": "^2.0.5-beta",
+    "yargs": "^3.32.0",
+    "handlebars-layouts": "^3.1.3"
   }
 }
