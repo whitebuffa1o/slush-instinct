@@ -14,10 +14,6 @@ module.exports = {
     'jquery': 'jQuery'
   },<% } %>
 
-  resolve: {
-    root: [path.join(__dirname, 'bower_components')]
-  },
-
   module: {
     loaders: [
       { test: /\.json$/, loader: 'json' },
@@ -25,9 +21,6 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.ResolverPlugin(
-      new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])
-    ),
     new webpack.optimize.CommonsChunkPlugin('common.js'),
   ]
 }
