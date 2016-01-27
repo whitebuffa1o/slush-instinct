@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased]
 
+## [1.0.0] - 2016-01-27
+### Added
+- Support for 2.0.0 Instinct
+- Now works with Node 5.X.X
+
 ## [0.2.0] - 2016-01-11
 ### Added
 - Adds source paths to the configuration file so we can modify them per project, if necessary
