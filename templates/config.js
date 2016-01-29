@@ -22,7 +22,7 @@ var hbs = {
   partials: ['./_src/markup/_partials/**/*.hbs', './_src/markup/_layouts/**/*.hbs'<% if(cuttlefish) { %>, './node_modules/cuttlefish/partials/**/*.hbs'<% }%>],
 };
 
-var syncOptions = (!project.bypassCms) ? {
+var syncOptions = {
   ghostMode: {
     clicks: false,
     location: true,
@@ -33,22 +33,13 @@ var syncOptions = (!project.bypassCms) ? {
   open: 'external',
   port: 1337,
   xip: true,
-  proxy: project.url
-}:{
-  ghostMode: {
-    clicks: false,
-    location: true,
-    forms: true,
-    scroll: false,
-  },
-  logPrefix: project.name,
-  open: 'external',
-  port: 1337,
-  xip: true,
-  server: {
-    baseDir: './build'
-  }
-};
+}
+
+if(project.bypassCms) {
+  syncOptions.server = { baseDir: './build' }
+} else {
+  syncOptions.proxy = project.url
+}
 
 // Sprite source
 // Needs to be specified here because sprity is annoying and 
