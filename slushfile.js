@@ -52,10 +52,6 @@ gulp.task('default', function(done){
     message: 'What is the url for this project?',
     default: 'www.'+defaults.appName+'.com'
   }, {
-    name: 'appRepo',
-    message: 'What is the git repository name?',
-    default: defaults.appName
-  }, {
     name: 'appDescription',
     message: 'Briefly describe the project:'
   }, {
@@ -82,14 +78,17 @@ gulp.task('default', function(done){
     default: true
   }, {
     type: 'confirm',
-    name: 'foundation',
-    message: 'Should this project use Foundation?',
-    default: false
-  }, {
-    type: 'confirm',
     name: 'cuttlefish',
     message: 'Is this project using Cuttlefish?',
     default: false
+  }, {
+    type: 'confirm',
+    name: 'foundation',
+    message: 'Should this project use Foundation?',
+    default: false,
+    when: function(answers){
+      return !answers.cuttlefish;  
+    }
   }];
 
   //Ask
@@ -108,10 +107,10 @@ gulp.task('default', function(done){
     // If Cuttlefish, we don't need utils
     if(answers.cuttlefish) {
       files.push('!'+__dirname+'/templates/_src/sass/_utils.scss');
-    }
 
-    gulp.src('./')
-      .pipe(exec('git init && git remote add origin git@gitlab.com:clearlink/'+answers.appRepo+'.git'));
+      // Let's set answers.foundation to false, so we don't get any errors from our other template file
+      answers.foundation = false;
+    }
 
     gulp.src(files)
       .pipe(template(answers))
