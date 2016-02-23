@@ -7,7 +7,6 @@ var gulp = require('gulp'),
   rename = require('gulp-rename'),
   _ = require('underscore.string'),
   inquirer = require('inquirer'),
-  exec = require('gulp-exec'),
   path = require('path');
 
 function format(string) {
