@@ -4,7 +4,7 @@
   "version": "<%= appVersion %>",
   "private": true,
   "author": "<%= authorName %> <<%= authorEmail %>>",
-  "repository": "<%= appRepo %>",
+  "repository": "",
   "devDependencies": {
     "gulp": "^3.9.0",
     "instinct_cl": "^2.0.0",
