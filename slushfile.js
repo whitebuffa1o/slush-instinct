@@ -7,7 +7,8 @@ var gulp = require('gulp'),
   rename = require('gulp-rename'),
   _ = require('underscore.string'),
   inquirer = require('inquirer'),
-  path = require('path');
+  path = require('path'),
+  gitlab = require('node-gitlab');
 
 function format(string) {
   var username = string.toLowerCase();
@@ -80,6 +81,37 @@ gulp.task('default', function(done){
     name: 'cuttlefish',
     message: 'Is this project using Cuttlefish?',
     default: false
+  }, {
+    type: 'password',
+    name: 'gitlabToken',
+    message: 'What is your gitlab private token?',
+    when: function(answers){
+      return answers.cuttlefish;
+    }
+  }, {
+    type: 'list',
+    name: 'cuttlefishTheme',
+    message: 'Which Cuttlefish theme do you need?',
+    choices: function(answers){
+      var choices = ['Start from scratch', new inquirer.Separator()];
+      var done = this.async();
+      var client = gitlab.createPromise({
+        api: 'https://gitlab.com/api/v3/groups/clearlink',
+        privateToken: answers.gitlabToken
+      });
+
+      client.projects.list().then(function(projects){
+        projects.map(function(obj){
+          if(obj.name.startsWith('cf_')){
+            choices.push(obj.name);
+          }
+        });
+        done(choices);
+      });
+    },
+    when: function(answers){
+      return answers.gitlabToken;
+    }
   }, {
     type: 'confirm',
     name: 'foundation',
