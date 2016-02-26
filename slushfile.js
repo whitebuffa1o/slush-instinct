@@ -136,9 +136,13 @@ gulp.task('default', function(done){
       files.push('!'+__dirname+'/templates/_src/markup/*.html');
     }
 
-    // If Cuttlefish, we don't need utils
-    if(answers.cuttlefish) {
+    // If Cuttlefish and Foundation, we don't need utils
+    if(answers.cuttlefish || answers.foundation) {
       files.push('!'+__dirname+'/templates/_src/sass/_utils.scss');
+    }
+
+    // If Cuttlefish, we don't need the header/footer partials
+    if(answers.cuttlefish) {
       files.push('!'+__dirname+'/templates/_src/markup/_partials/header.hbs');
       files.push('!'+__dirname+'/templates/_src/markup/_partials/footer.hbs');
 
