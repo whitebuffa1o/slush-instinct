@@ -1,4 +1,4 @@
-<% if(!cuttlefish) { %>/**
+<% if(!cuttlefish && !foundation) { %>/**
  * SETTINGS
  * ---------
  * The main sass configuration file for <%= appName %>. You may/should/will
@@ -55,19 +55,7 @@ $breakpoints: (
   dsm: 960px,
   dlg: #{$max-width},
 );
-<% if(foundation){ %>
-/**
- * Foundation Settings
- * ---------
- * Overwrite Foundation settings here.
- * ---------
- * Tips:
- * - If you need to reference, the settings file is in the
- *   node_modules/foundation-sites directory. DO NOT MODIFY THAT FILE!
- *   Instead, place just your modifications here.
- */
-$row-width: #{$max-width};
-<% } %>
+
 /**
  * Imported Files
  * ---------
@@ -79,10 +67,21 @@ $row-width: #{$max-width};
  *   to which files they are/are going to utilize.
  */
 // Additional tool imports
-@import 'utils';
+@import 'utils';<% } %><% if(foundation){ %>
+/**
+ * Foundation Settings
+ * ---------
+ * Overwrite Foundation settings here.
+ * ---------
+ * Tips:
+ * - If you need to reference, the settings file is in the
+ *   node_modules/foundation-sites directory. DO NOT MODIFY THAT FILE!
+ *   Instead, place just your modifications here.
+ */
+$button-padding: 0.85em 1em;
+$button-fill: solid;
 
-// Other style imports
-<% if(foundation) { %>@import '../../node_modules/foundation-sites/scss/normalize';
-@import '../../node_modules/foundation-sites/scss/foundation';<% } %><% } else { %><% if(!foundation) { %>
-@import '../../node_modules/node.normalize.scss/normalize';<% } %>
+@import '../../node_modules/foundation-sites/scss/normalize';
+@import '../../node_modules/foundation-sites/scss/foundation';<% } %><% if(!foundation) { %>
+@import '../../node_modules/node.normalize.scss/normalize';<% } %><% if(cuttlefish){ %>
 @import '../../node_modules/cuttlefish/sass/cuttlefish/cuttlefish';<% } %>
