@@ -150,6 +150,11 @@ gulp.task('default', function(done){
       answers.foundation = false;
     }
 
+    // Set cuttlefishTheme to false if it doesn't exist as well.
+    if(!answers.cuttlefishTheme) {
+      answers.cuttlefishTheme = false;
+    }
+
     gulp.src('./')
       .pipe(exec('git init'))
 
