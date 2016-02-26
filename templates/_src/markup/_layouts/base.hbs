@@ -21,7 +21,7 @@
 </head>
 <body>
   {{#block "header"}}
-    {{> header }}
+    <% if(!cuttlefish){ %>{{> header }}<% } %>
   {{/block}}
 
   <main>
@@ -30,7 +30,7 @@
   </main>
 
   {{#block "footer"}}
-    {{> footer }}
+    <% if(!cuttlefish){ %>{{> footer }}<% } %>
   {{/block}}
 
   {{#block "scripts"}}
