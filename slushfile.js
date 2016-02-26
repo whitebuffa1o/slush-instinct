@@ -8,6 +8,7 @@ var gulp = require('gulp'),
   _ = require('underscore.string'),
   inquirer = require('inquirer'),
   path = require('path'),
+  exec = require('gulp-exec'),
   gitlab = require('node-gitlab');
 
 function format(string) {
@@ -138,9 +139,22 @@ gulp.task('default', function(done){
     // If Cuttlefish, we don't need utils
     if(answers.cuttlefish) {
       files.push('!'+__dirname+'/templates/_src/sass/_utils.scss');
+      files.push('!'+__dirname+'/templates/_src/markup/_partials/header.hbs');
+      files.push('!'+__dirname+'/templates/_src/markup/_partials/footer.hbs');
 
       // Let's set answers.foundation to false, so we don't get any errors from our other template file
       answers.foundation = false;
+    }
+
+    gulp.src('./')
+      .pipe(exec('git init'))
+
+    if(answers.cuttlefishTheme && answers.cuttlefishTheme != 'Start from scratch'){
+      // Set a .5s timeout to make sure the git init is complete
+      setTimeout(function(){
+        gulp.src('./')
+          .pipe(exec('git submodule add git@gitlab.com:clearlink/'+answers.cuttlefishTheme+'.git _src/theme'));
+      }, 500);
     }
 
     gulp.src(files)
