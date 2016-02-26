@@ -61,7 +61,7 @@ module.exports = {
       dest: (project.bypassCms ? './build/' : './pages/')
     },
     css: {
-      source: ['./_src/sass/**/*.{scss,sass}'],
+      source: ['./_src/sass/**/*.{scss,sass}'<% if(cuttlefishTheme != 'Start from scratch'){%>, './_src/theme/**/*.{scss,sass}'<% } %>],
       dest: (project.bypassCms ? './build/css/' : './css/')
     },
     images: {
@@ -87,6 +87,12 @@ module.exports = {
     data: hbs.data,
     helpers: hbs.helpers,
     partials: hbs.partials,
+    parseDataName: function(file){
+      return path.basename(file.shortPath);
+    },
+    parseHelperName: function(file){
+      return path.basename(file.shortPath);
+    },
     parsePartialName: function(file){
       return path.basename(file.shortPath);
     }
