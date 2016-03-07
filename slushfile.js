@@ -70,7 +70,7 @@ gulp.task('default', function(done){
   }, {
     type: 'confirm',
     name: 'bypass',
-    message: 'Do you want to bypass the CMS entirely? (This can be changed later)',
+    message: 'Will this be a static build, rather than using CMSV2? (This can be changed later)',
     default: false
   }, {
     type: 'confirm',
@@ -83,35 +83,10 @@ gulp.task('default', function(done){
     message: 'Is this project using Cuttlefish?',
     default: false
   }, {
-    type: 'password',
-    name: 'gitlabToken',
-    message: 'What is your gitlab private token?',
+    name: 'theme',
+    message: 'What is the name of the theme repository? (eg: cf_vivint, cf_frontier)',
     when: function(answers){
       return answers.cuttlefish;
-    }
-  }, {
-    type: 'list',
-    name: 'cuttlefishTheme',
-    message: 'Which Cuttlefish theme do you need?',
-    choices: function(answers){
-      var choices = ['Start from scratch', new inquirer.Separator()];
-      var done = this.async();
-      var client = gitlab.createPromise({
-        api: 'https://gitlab.com/api/v3/groups/clearlink',
-        privateToken: answers.gitlabToken
-      });
-
-      client.projects.list().then(function(projects){
-        projects.map(function(obj){
-          if(obj.name.startsWith('cf_')){
-            choices.push(obj.name);
-          }
-        });
-        done(choices);
-      });
-    },
-    when: function(answers){
-      return answers.gitlabToken;
     }
   }, {
     type: 'confirm',
@@ -119,7 +94,7 @@ gulp.task('default', function(done){
     message: 'Should this project use Foundation?',
     default: false,
     when: function(answers){
-      return !answers.cuttlefish;  
+      return !answers.cuttlefish;
     }
   }];
 
@@ -136,7 +111,7 @@ gulp.task('default', function(done){
       files.push('!'+__dirname+'/templates/_src/markup/*.html');
     }
 
-    // If Cuttlefish and Foundation, we don't need utils
+    // If Cuttlefish or Foundation, we don't need utils
     if(answers.cuttlefish || answers.foundation) {
       files.push('!'+__dirname+'/templates/_src/sass/_utils.scss');
     }
@@ -150,19 +125,19 @@ gulp.task('default', function(done){
       answers.foundation = false;
     }
 
-    // Set cuttlefishTheme to false if it doesn't exist as well.
-    if(!answers.cuttlefishTheme) {
-      answers.cuttlefishTheme = false;
+    // Set theme to false if it doesn't exist as well.
+    if(!answers.theme) {
+      answers.theme = false;
     }
 
     gulp.src('./')
       .pipe(exec('git init'))
 
-    if(answers.cuttlefishTheme && answers.cuttlefishTheme != 'Start from scratch'){
+    if(answers.theme){
       // Set a .5s timeout to make sure the git init is complete
       setTimeout(function(){
         gulp.src('./')
-          .pipe(exec('git submodule add git@gitlab.com:clearlink/'+answers.cuttlefishTheme+'.git _src/theme'));
+          .pipe(exec('git submodule add git@gitlab.com:clearlink/'+answers.theme+'.git _src/theme'));
       }, 500);
     }
 
@@ -171,7 +146,7 @@ gulp.task('default', function(done){
       .pipe(rename(function(file){
         if(file.basename.substring(0, 4) === 'dot_'){
           file.basename = '.' + file.basename.slice(4);
-        }      
+        }
       }))
       .pipe(conflict('./'))
       .pipe(gulp.dest('./'))

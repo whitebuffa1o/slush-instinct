@@ -61,7 +61,7 @@ module.exports = {
       dest: (project.bypassCms ? './build/' : './pages/')
     },
     css: {
-      source: ['./_src/sass/**/*.{scss,sass}'<% if(cuttlefishTheme != 'Start from scratch'){%>, './_src/theme/**/*.{scss,sass}'<% } %>],
+      source: ['./_src/sass/**/*.{scss,sass}'<% if(theme){%>, './_src/theme/**/*.{scss,sass}'<% } %>],
       dest: (project.bypassCms ? './build/css/' : './css/')
     },
     images: {
