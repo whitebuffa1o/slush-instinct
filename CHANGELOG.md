@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased]
 
+## [1.0.3] - 2016-03-7
+- Kills off the gitlab API feature. It was neat, but not reliable enough.
+
 ## [1.0.2] - 2016-02-26
 - Is smarter with Cuttlefish. Asks you CF specific set up questions when necessary
 - Includes more complete Cuttlefish file structure to work with CF 1.0.0
