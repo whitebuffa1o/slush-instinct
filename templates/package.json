@@ -7,7 +7,7 @@
   "repository": "",
   "devDependencies": {
     "gulp": "^3.9.0",
-    "instinct_cl": "^2.0.0",
+    "instinct_cl": "^2.0.1",
     "imagemin-pngquant": "^4.2.0",
     <% if(cuttlefish) { %>"cuttlefish": "git@gitlab.com:clearlink/cuttlefish.git",<% } else {  %><% if(foundation) { %>
     "foundation-sites": "^5.5.3",<% } %><% } %><% if(!foundation) { %>

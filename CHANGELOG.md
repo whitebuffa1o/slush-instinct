@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased]
 
+## [1.0.4] - 2016-03-17
+- Point to latest Instinct
+
 ## [1.0.3] - 2016-03-7
 - Kills off the gitlab API feature. It was neat, but not reliable enough.
 
